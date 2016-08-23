@@ -1,0 +1,12 @@
+//ITEM/SUBITEM MODEL:
+{
+	"id": "item-id",	//Optional. Used to identify the item
+	"title": "My Item",	//Required. Is the main text of the item
+	"description": "My item description",	//Optional. Used to provide a description for the item
+	"image": "res/img/icon.png",	//Optional. Used to provide an image url for the item's logo
+	"icon": "fa-home",	//Optional. Used to provide a font-awesome code for the item's icon. Ignored if logo attribute is setted.
+	"url": "550/loadiine/",		//Optional. Item's click action URL.
+	"items": [	//Optional. List of item's children.
+		...
+	]
+}

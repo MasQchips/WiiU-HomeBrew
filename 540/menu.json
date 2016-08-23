@@ -1,0 +1,49 @@
+{
+	"title": "WebExploits for 5.4.0",
+	"description": "Version 2.0",
+	"icon": "flag",
+	"items": [
+		{
+			"title": "Homebrew launcher",
+			"description": "Should only need to run this once",
+			"icon": "bars",
+			"url": "hbl/540hbl.mp4"
+		},
+		{
+			"title": "Loadiine GX2 v0.3",
+			"description": "Should only need to run once. Or run from HBL above",
+			"icon": "gamepad",
+			"url": "loadiinegx2/540loadiine.mp4"
+		},
+		{
+			"title": "AIO Kexploit by Nexocube",
+			"description": "",
+			"icon": "hashtag",
+			"url": "kexploit/aiocode540.mp4"
+		},
+		{
+			"title": "Standalone Kexploit Loadiine Version (kexploit10)",
+			"description": "",
+			"icon": "hashtag",
+			"url": "kexploit/540kexploit10.mp4"
+		},
+		{
+			"title": "Standalone Kexploit NON Loadiine Version (kexploit31)",
+			"description": "",
+			"icon": "hashtag",
+			"url": "kexploit/540kexploit31.mp4"
+		},
+		{
+			"title": "Cafiine",
+			"description": "Cheat Engine (Use nonloadiine kexploit)",
+			"icon": "coffee",
+			"url": "cafiine/540cafiine.mp4"
+		},
+		{
+			"title": "SDCafiine",
+			"description": "Cheat Engine (Use nonloadiine kexploit)",
+			"icon": "coffee",
+			"url": "sdcafiine/sdcafiine540.mp4"
+		}
+	]
+}
